@@ -50,7 +50,7 @@ It uses `HttpResponse` to create static web pages and demonstrates basic Django 
 
 ---
 
-## Exemple
+## 💡Example
 ### code
 
 config/settings.py
@@ -85,7 +85,6 @@ urlpatterns = [
     
 ]
 
-
 ```
 
 static_pages_no_templates/views.py
@@ -118,7 +117,6 @@ nav = """
         <a href='/subscribe/'>Subscribe</a>
     </nav>
 """
-
 home_body = f"""
 <ol>
     <li>Site Name: {site_name}</li>
@@ -126,7 +124,6 @@ home_body = f"""
     <li>User Rating: {rating:.2f}</li>
 </ol>
 """
- 
     
 def home(request):
     content = f"""
@@ -152,10 +149,8 @@ def home(request):
     """
     return HttpResponse(content)  
 
-
 def contact(request):
     email = site_info.get('email', 'Not available')
-    
     content = f"""
     <h1>Contact Page</h1>
     <h2>Get in touch with us</h2>
@@ -169,22 +164,27 @@ def contact(request):
 
 ### Home
 Displays site info, list, and dictionary data.
-![Home Page](screenshots/home.png)
 
+![Home Page](screenshots/home.png)
+  
 ### About
 Basic project information.
+
 ![About Page](screenshots/about.png)
 
 ### Contact
 Displays contact email.
+
 ![Contact Page](screenshots/contact.png)
 
 ### Help
 Support information.
+
 ![Help Page](screenshots/help.png)
 
 ### Subscribe
 Subscription page message.
+
 ![Subscribe Page](screenshots/subscribe.png)
 
 ---
