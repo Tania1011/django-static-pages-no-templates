@@ -1,6 +1,4 @@
-from django.shortcuts import render
 from django.http import HttpResponse
-
 #GLOBAL DATA 
 # Variables
 site_name = "My Django Website"
@@ -41,23 +39,18 @@ home_body = f"""
  
     
 def home(request):
-
     content = f"""
     {nav}
-
     <h1>Welcome to {site_name}</h1>
     <p>Author: {site_info['owner']}</p>
-
     <h2>Pages</h2>
     <ul>
         {"".join([f"<li>{p}</li>" for p in pages])}
     </ul>
-
     <h2>List</h2>
     <ul>
         {"".join([f"<li>{i}</li>" for i in my_list])}
     </ul>
-
     <h2>Site Info</h2>
     <ul>
         <li>Email: {site_info['email']}</li>
@@ -69,39 +62,42 @@ def home(request):
     """
     return HttpResponse(content)  
 
-
 def contact(request):
+    email = site_info.get('email', 'Not available')
+    
     content = f"""
     <h1>Contact Page</h1>
-    <p>Email: {site_info['email']}</p>
+    <h2>Get in touch with us</h2>
+    <p>Email: {email}</p>
     """
     return HttpResponse(nav + content)
-
 
 def about(request):
     content = f"""
     <h1>About Page</h1>
+    <h2>About this project</h2>
     <p>This is the about page.</p>
     <p>Author: {site_info['owner']}</p>
     """
     return HttpResponse(nav + content)
 
-
 def help(request):
     content = f"""
     <h1>Help Page</h1>
+    <h2>Support Center</h2>
     <p>Need help? Contact support.</p>
     """
     return HttpResponse(nav + content)
 
-
 def subscribe(request):
     content = f"""
     <h1>Subscribe Page</h1>
+    <h2>Join Us</h2>
     <p>Stay updated with {site_name}</p>
     """
     return HttpResponse(nav + content)
-    
+
+
 
 
 
